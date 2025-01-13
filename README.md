@@ -1,77 +1,77 @@
-
-# 5-Minute Candlestick Data Processor
+# Fibonacci Pivot Points and 5-Minute Candle Data Processing
 
 ## Project Overview
-This project processes options trading data for BANKNIFTY to generate 5-minute candlestick data and calculate Fibonacci Pivot Points for January 10, 2024.
 
-## Features
-- **5-Minute Candlestick Generation:**
-  - Calculates Open, High, Low, Close (OHLC) values for 5-minute intervals.
-- **Fibonacci Pivot Points Calculation:**
-  - Computes Pivot, R1, R2, R3, S1, S2, S3 using daily high, low, and close values.
+This project processes financial data for BANKNIFTY options to:
+
+- Generate 5-minute candlestick data for 10th January 2024.
+- Calculate Fibonacci Pivot Points for the same date.
+- Export the results to CSV files.
 
 ## Project Structure
+
 ```
-├── 5min_candles/              # Folder for storing generated CSV files
+├── 5min_candles/
 │   ├── 47100CE_5min_candles.csv
 │   └── 47100CE_Fibonacci_Pivot_Points.csv
-├── data/                      # Raw input data (Parquet files)
-│   └── BANKNIFTY
-│       └── 2024-01-10
-├── scripts/                   # Python scripts for data processing
-│   └── process_data.py
-├── README.md                  # Project documentation
-└── requirements.txt           # Python dependencies
+├── main.ipynb  # Google Colab notebook with the implementation
+├── requirements.txt
+└── README.md
 ```
 
 ## Setup Instructions
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   ```
+### 1. Clone the Repository
 
-2. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
 
-3. **Run the Script:**
-   ```bash
-   python scripts/process_data.py
-   ```
+### 2. Install Dependencies
 
-## Script Details
+```bash
+pip install -r requirements.txt
+```
 
-### 5-Minute Candlestick Calculation
-- Open: First value in the 5-minute window
-- High: Maximum value in the 5-minute window
-- Low: Minimum value in the 5-minute window
-- Close: Last value in the 5-minute window
+### 3. Open Google Colab
 
-### Fibonacci Pivot Points Formula
-- Pivot Point (P) = (High + Low + Close) / 3  
-- R1 = P + 0.382 × (High - Low)  
-- R2 = P + 0.618 × (High - Low)  
-- R3 = P + (High - Low)  
-- S1 = P - 0.382 × (High - Low)  
-- S2 = P - 0.618 × (High - Low)  
-- S3 = P - (High - Low)
+- Upload the `quant.ipynb` file to Google Colab.
+- Upload your `.parquet` data files to Colab or connect Google Drive.
 
-## Output
-- **5min_candles/47100CE_5min_candles.csv**: Contains 5-minute OHLC data.
-- **5min_candles/47100CE_Fibonacci_Pivot_Points.csv**: Contains daily Fibonacci pivot points.
+### 4. Run the Notebook
 
-## Contributing
-Feel free to submit pull requests or open issues for improvements.
+- Execute all cells to generate the 5-minute candles and Fibonacci Pivot Points.
+- Processed CSV files will be saved in the `5min_candles` folder.
 
-## License
-This project is licensed under the MIT License.
+## Output Files
+
+- **5-Minute Candles:** `5min_candles/47100CE_5min_candles.csv`
+- **Fibonacci Pivot Points:** `5min_candles/47100CE_Fibonacci_Pivot_Points.csv`
+
+## Calculations
+
+### 5-Minute Candles
+
+- **Open:** First price in each 5-minute interval.
+- **High:** Maximum price in the interval.
+- **Low:** Minimum price in the interval.
+- **Close:** Last price in the interval.
+
+### Fibonacci Pivot Points
+
+- **Pivot Point (P):** (High + Low + Close) / 3
+- **R1:** P + 0.382 × (High − Low)
+- **R2:** P + 0.618 × (High − Low)
+- **R3:** P + (High − Low)
+- **S1:** P − 0.382 × (High − Low)
+- **S2:** P − 0.618 × (High − Low)
+- **S3:** P − (High − Low)
+
+## Author
+
+Pratham Shirol
 
 ---
 
-**Author:** Pratham Shirol
-
-**Contact:** prathamshirol@example.com
 
