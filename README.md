@@ -1,3 +1,53 @@
+# BANKNIFTY
+
+## Description
+This project involves analyzing and processing financial datasets in Parquet format for BANKNIFTY options. The dataset is stored in Cloudflare R2 and needs to be downloaded and processed for analysis.
+
+## Installation
+
+### Prerequisites
+- Python 3.10+
+- pip (Python package manager)
+- Git (for cloning the repository)
+
+### Required Python Packages
+```bash
+pip install pandas pyarrow s3cmd
+```
+
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone <repository_url>
+cd <repository_folder>
+```
+
+### 2. Configure `s3cmd`
+
+Create a file named `.s3cfg` in the project directory with the following content:
+
+```
+[default]
+access_key = <YOUR_ACCESS_KEY>
+secret_key = <YOUR_SECRET_KEY>
+host_base = cbabd13f6c54798a9ec05df5b8070a6e.r2.cloudflarestorage.com
+host_bucket = cbabd13f6c54798a9ec05df5b8070a6e.r2.cloudflarestorage.com
+use_https = True
+```
+
+### 3. Download Dataset
+
+Run the following command to download the dataset:
+```bash
+s3cmd sync s3://desiquant/data/candles/BANKNIFTY/2024-01-10/ ./data/candles/BANKNIFTY/2024-01-10/
+```
+
+## Notes
+- Replace `<YOUR_ACCESS_KEY>` and `<YOUR_SECRET_KEY>` with actual credentials.
+- Ensure correct file paths while uploading and reading files in Google Colab.
+
+
 # Fibonacci Pivot Points and 5-Minute Candle Data Processing
 
 ## Project Overview
@@ -72,6 +122,8 @@ pip install -r requirements.txt
 
 Pratham Shirol
 
+## Contact
+For any issues, contact [Pratham Shirol] at [prathamshirol53@gmail.com].
 ---
 
 
